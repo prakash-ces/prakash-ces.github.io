@@ -1,13 +1,16 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
+import { NgModule } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser'
+import { FormsModule }    from '@angular/forms'
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { TimelineComponent } from './content/timeline/timeline.component';
-import { NoticeComponent } from './content/notice/notice.component';
+import { AppComponent } from './app.component'
+import { HeaderComponent } from './header/header.component'
+import { TimelineComponent } from './content/timeline/timeline.component'
+import { NoticeComponent } from './content/notice/notice.component'
 
-import { AppRoutingModule }     from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module'
+
+import { NoticeService } from './common/notice.service'
+import { TimelineService } from './common/timeline.service'
 
 @NgModule({
   declarations: [
@@ -21,7 +24,7 @@ import { AppRoutingModule }     from './app-routing.module';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [NoticeService, TimelineService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
