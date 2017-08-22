@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { FormsModule }    from '@angular/forms'
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component'
 import { HeaderComponent } from './header/header.component'
@@ -22,7 +23,8 @@ import { TimelineService } from './common/timeline.service'
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
   providers: [NoticeService, TimelineService],
   bootstrap: [AppComponent]

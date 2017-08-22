@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { TimelineService } from './../../common/timeline.service'
+import { NgFor } from '@angular/common'
 
 @Component({
   // selector: 'header-bar',
@@ -7,8 +8,11 @@ import { TimelineService } from './../../common/timeline.service'
   styleUrls: ['./timeline.component.css']
 })
 export class TimelineComponent {
-  posts_data ;
+  posts
   constructor(private timelinedata: TimelineService){
-    this.posts_data = timelinedata.getPosts()
+    // this.posts = timelinedata.getPosts()
+    console.log("component START");
+    this.posts = timelinedata.getNewPosts()
+    console.log("component DONE", this.posts);
   }
 }

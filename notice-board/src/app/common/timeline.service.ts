@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import 'rxjs/Rx';
 
 @Injectable()
 export class TimelineService {
+  tmpData
+  constructor(private http: Http) { }
+
   getPosts(){
     const tmpData = [
       {
@@ -18,7 +23,7 @@ export class TimelineService {
         Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad
         debitis unde? Iste voluptatibus minus veritatis qui ut.`,
         crdate: 'Dec 10',
-        imgurl: './assets/img/cd-icon-movie.svg'
+        imgurl: './assets/img/cd-icon-location.svg'
       },
       {
         title: 'Title of section 3',
@@ -34,7 +39,7 @@ export class TimelineService {
         Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad
         debitis unde? Iste voluptatibus minus veritatis qui ut.`,
         crdate: 'Jan 1',
-        imgurl: './assets/img/cd-icon-movie.svg'
+        imgurl: './assets/img/cd-icon-location.svg'
       },
       {
         title: 'Title of section 5',
@@ -46,5 +51,22 @@ export class TimelineService {
       }
     ];
     return tmpData
+  }
+
+  getNewPosts(){
+    console.log("service START");
+    this.http.get("posts.json")
+      .map(res => {
+        console.log("SERVICE BETWEEN", res.json())
+        this.tmpData = res.json();
+        // return res.json();
+      })
+      // .do(data => {
+      //   console.log("HERE ->", data)
+      //   return data;
+      // }
+    // );
+
+    return this.tmpData;
   }
 }

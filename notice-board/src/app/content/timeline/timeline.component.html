@@ -1,12 +1,11 @@
 <h2>TIMELINE</h2>
 
 <a href routerLink="/notice">View Notice</a>
-{{posts_data}}
+
 <section id="cd-timeline" class="cd-container">
-    <div *ngFor="#post in posts_data" class="cd-timeline-block" >
+    <div *ngFor="let post of posts | async" class="cd-timeline-block" >
         <div class="cd-timeline-img cd-picture">
-            <!-- <img src="{{post.imgurl}}" alt="P"> -->
-            {{post}}
+             <img src="{{post.imgurl}}" alt="P">
         </div>
 
         <div class="cd-timeline-content">
