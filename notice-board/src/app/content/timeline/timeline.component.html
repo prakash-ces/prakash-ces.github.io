@@ -1,5 +1,19 @@
 <h2>TIMELINE</h2>
 
 <a href routerLink="/notice">View Notice</a>
-
 {{posts_data}}
+<section id="cd-timeline" class="cd-container">
+    <div *ngFor="#post in posts_data" class="cd-timeline-block" >
+        <div class="cd-timeline-img cd-picture">
+            <!-- <img src="{{post.imgurl}}" alt="P"> -->
+            {{post}}
+        </div>
+
+        <div class="cd-timeline-content">
+            <h2>{{post.title}}</h2>
+            <p>{{post.content}}</p>
+            <a href="#0" class="cd-read-more">Read more</a>
+            <span class="cd-date">{{post.crdate}}</span>
+        </div>
+    </div>
+</section>

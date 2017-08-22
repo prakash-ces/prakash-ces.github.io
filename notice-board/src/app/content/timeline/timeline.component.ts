@@ -7,9 +7,8 @@ import { TimelineService } from './../../common/timeline.service'
   styleUrls: ['./timeline.component.css']
 })
 export class TimelineComponent {
+  posts_data ;
   constructor(private timelinedata: TimelineService){
-    let posts_data = timelinedata.getPosts()
-    console.log(posts_data);
+    this.posts_data = timelinedata.getPosts()
   }
-
 }
