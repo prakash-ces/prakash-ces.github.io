@@ -55,11 +55,11 @@ export class TimelineService {
 
   getNewPosts(){
     console.log("service START");
-    this.http.get("posts.json")
-      .map(res => {
+    return this.http.get("./assets/posts.json")
+      .map((res:Response) => {
         console.log("SERVICE BETWEEN", res.json())
-        this.tmpData = res.json();
-        // return res.json();
+        //this.tmpData = res.json();
+        return res.json();
       })
       // .do(data => {
       //   console.log("HERE ->", data)
@@ -67,6 +67,6 @@ export class TimelineService {
       // }
     // );
 
-    return this.tmpData;
+    // return this.tmpData;
   }
 }
