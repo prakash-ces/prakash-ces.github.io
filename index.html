@@ -40,12 +40,12 @@
           console.log('in res');
           
           if ( response.error ) {
-            alert('oauth error ' + response.error);
+            console.log('oauth error ' + response.error);
             return;
           }
 
           amazon.Login.retrieveProfile(response.access_token, function(response) {
-            alert(response);
+            console.log(response);
           });
         });
       };
