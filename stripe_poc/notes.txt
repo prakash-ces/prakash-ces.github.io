@@ -11,6 +11,9 @@ plan_G3a8EwG1F3h6nE
 Test
 plan_G3a6rrq9AVYu0z
 
+cs_live_BCjoRyDjtte7089eex6HhKzGJkNWzCLdbRT3rVyX4u56jqJfesndueDi
+
+cs_test_I7mvvChNJGEcZaY8nZUUJkFe1ckVBRnduMsxVhapc9hGl0gHBta9vUrT
 
 curl https://api.stripe.com/v1/checkout/sessions \
   -u REPLACE_WITH_SECRET_KEY: \
