@@ -1,0 +1,148 @@
+pk_live_GuXjzwrzGbigi74vPwoBcNJo00u74SD8WD
+Test
+pk_test_WmvueXqE1RIIu7PIWeXl1FJe003epYWUfM
+
+sk_live_uRwM1u7a8mC6QAu8Sj6xOSwH00Tr6PZrmY
+Test
+sk_test_8uS1foI5WFMos6cAvhCEtxGs002fz4KL2j
+
+plan_G3a8EwG1F3h6nE
+
+Test
+plan_G3a6rrq9AVYu0z
+
+
+curl https://api.stripe.com/v1/checkout/sessions \
+  -u REPLACE_WITH_SECRET_KEY: \
+  -d "payment_method_types[]=card" \
+  -d "subscription_data[items][][plan]=REPLACE_WITH_PLAN_ID" \
+  -d success_url="https://example.com/success?session_id={CHECKOUT_SESSION_ID}" \
+  -d cancel_url="https://example.com/cancel"
+
+  
+curl https://api.stripe.com/v1/checkout/sessions \
+  -u sk_test_8uS1foI5WFMos6cAvhCEtxGs002fz4KL2j: \
+  -d "payment_method_types[]=card" \
+  -d "subscription_data[items][][plan]=plan_G3a6rrq9AVYu0z" \
+  -d success_url="https://example.com/success?session_id={CHECKOUT_SESSION_ID}" \
+  -d cancel_url="https://example.com/cancel"
+
+
+sub_G4ZeJ0m0EJPdsk
+
+curl https://api.stripe.com/v1/subscription_items/sub_G4ZeJ0m0EJPdsk/usage_records \
+  -u sk_test_8uS1foI5WFMos6cAvhCEtxGs002fz4KL2j: \
+  -X POST \
+  -d quantity=100 \
+  -d timestamp=1572259509 \
+  -d action=increment
+
+
+
+  {
+  "id": "cs_live_BCjoRyDjtte7089eex6HhKzGJkNWzCLdbRT3rVyX4u56jqJfesndueDi",
+  "object": "checkout.session",
+  "billing_address_collection": null,
+  "cancel_url": "https://example.com/cancel",
+  "client_reference_id": null,
+  "customer": null,
+  "customer_email": null,
+  "display_items": [
+    {
+      "amount": 10000,
+      "currency": "usd",
+      "plan": {
+        "id": "plan_G3a8EwG1F3h6nE",
+        "object": "plan",
+        "active": true,
+        "aggregate_usage": null,
+        "amount": 10000,
+        "amount_decimal": "10000",
+        "billing_scheme": "per_unit",
+        "created": 1572010584,
+        "currency": "usd",
+        "interval": "month",
+        "interval_count": 1,
+        "livemode": true,
+        "metadata": {
+        },
+        "nickname": "Plan_100_Recurring",
+        "product": "prod_G3a0zytyXjyDhf",
+        "tiers": null,
+        "tiers_mode": null,
+        "transform_usage": null,
+        "trial_period_days": null,
+        "usage_type": "licensed"
+      },
+      "quantity": 1,
+      "type": "plan"
+    }
+  ],
+  "livemode": true,
+  "locale": null,
+  "mode": "subscription",
+  "payment_intent": null,
+  "payment_method_types": [
+    "card"
+  ],
+  "setup_intent": null,
+  "submit_type": null,
+  "subscription": null,
+  "success_url": "https://example.com/success?session_id={CHECKOUT_SESSION_ID}"
+}
+
+
+
+
+Test
+{
+  "id": "cs_test_I7mvvChNJGEcZaY8nZUUJkFe1ckVBRnduMsxVhapc9hGl0gHBta9vUrT",
+  "object": "checkout.session",
+  "billing_address_collection": null,
+  "cancel_url": "https://example.com/cancel",
+  "client_reference_id": null,
+  "customer": null,
+  "customer_email": null,
+  "display_items": [
+    {
+      "amount": 10000,
+      "currency": "usd",
+      "plan": {
+        "id": "plan_G3a6rrq9AVYu0z",
+        "object": "plan",
+        "active": true,
+        "aggregate_usage": null,
+        "amount": 10000,
+        "amount_decimal": "10000",
+        "billing_scheme": "per_unit",
+        "created": 1572010460,
+        "currency": "usd",
+        "interval": "month",
+        "interval_count": 1,
+        "livemode": false,
+        "metadata": {
+        },
+        "nickname": "Plan_100_Recurring",
+        "product": "prod_G3a5cjlNzEPP13",
+        "tiers": null,
+        "tiers_mode": null,
+        "transform_usage": null,
+        "trial_period_days": null,
+        "usage_type": "licensed"
+      },
+      "quantity": 1,
+      "type": "plan"
+    }
+  ],
+  "livemode": false,
+  "locale": null,
+  "mode": "subscription",
+  "payment_intent": null,
+  "payment_method_types": [
+    "card"
+  ],
+  "setup_intent": null,
+  "submit_type": null,
+  "subscription": null,
+  "success_url": "https://example.com/success?session_id={CHECKOUT_SESSION_ID}"
+}
